@@ -199,6 +199,9 @@
       document.querySelector("#copy").addEventListener("click", () => {
         navigator.clipboard.writeText(inputEl.value);
       });
+      document
+        .querySelector("#renew")
+        .addEventListener("click", generatePassword);
 
       generatePassword();
     </script>
