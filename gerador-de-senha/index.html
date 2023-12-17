@@ -121,6 +121,7 @@
 
         inputEl.value = password;
         calculateQuality();
+        calculateFontSize();
       }
 
       // Função para verificar a qualidade da senha e apresentar na tela a cor e tamanho da barra que indica a segurança da senha
@@ -131,8 +132,9 @@
             (numberEl.checked ? 25 : 0) +
             (symbolEl.checked ? 25 : 0)
         );
-        console.log(percent);
+
         securityIndicatorBar.style.width = `${percent}%`;
+
         if (percent > 60) {
           securityIndicatorBar.classList.remove("cirtical");
           securityIndicatorBar.classList.remove("warning");
@@ -151,6 +153,27 @@
           securityIndicatorBar.classList.add("completed");
         } else {
           securityIndicatorBar.classList.remove("completed");
+        }
+      }
+
+      //Função para ajustar o tamanho da font do input que mostra a senha gerada
+      function calculateFontSize() {
+        if (passwordLength > 40) {
+          inputEl.classList.remove("font-md");
+          inputEl.classList.remove("font-sm");
+          inputEl.classList.add("font-xs");
+        } else if (passwordLength > 31) {
+          inputEl.classList.remove("font-md");
+          inputEl.classList.add("font-sm");
+          inputEl.classList.remove("font-xs");
+        } else if (passwordLength > 20) {
+          inputEl.classList.add("font-md");
+          inputEl.classList.remove("font-sm");
+          inputEl.classList.remove("font-xs");
+        } else {
+          inputEl.classList.remove("font-md");
+          inputEl.classList.remove("font-sm");
+          inputEl.classList.remove("font-xs");
         }
       }
 
