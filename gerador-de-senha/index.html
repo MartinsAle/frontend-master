@@ -53,7 +53,7 @@
               id="password-length"
               class="slider"
               value="16"
-              min="4"
+              min="6"
               max="64"
             />
           </div>
@@ -87,26 +87,52 @@
 
     <script>
       const inputEl = document.querySelector("#password");
+      const uppercaseEl = document.querySelector("#uppercase-check");
+      const numberEl = document.querySelector("#number-check");
+      const symbolEl = document.querySelector("#symbol-check");
       let passwordLength = 16;
 
       //   Função para gerar a senha
       function generatePassword() {
-        const chars =
-          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*()[]{}?";
+        let chars = "abcdefghijklmnopqrstuvwxyz";
+        const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbersChars = "0123456789";
+        const symbolsChars = "!@#$%&*()[]{}?";
+
         let password = "";
+
+        if (uppercaseEl.checked) {
+          chars += uppercaseChars;
+        }
+        if (numberEl.checked) {
+          chars += numbersChars;
+        }
+        if (symbolEl.checked) {
+          chars += symbolsChars;
+        }
+
         for (let i = 0; i < passwordLength; i++) {
           const randomNumber = Math.floor(Math.random() * chars.length);
           password += chars.substring(randomNumber, randomNumber + 1);
         }
+
         inputEl.value = password;
       }
 
       //   Instrução para gerar a senha de acordo com o range desejado
       const passwordLengthEl = document.querySelector("#password-length");
+
       passwordLengthEl.addEventListener("input", () => {
         passwordLength = passwordLengthEl.value;
+        document.querySelector("#password-length-text").innerText =
+          passwordLength;
         generatePassword();
       });
+
+      // Gerando senha conforme configurações são marcadas / desmarcadas (maiúsculas, números e símbolos)
+      uppercaseEl.addEventListener("click", generatePassword);
+      numberEl.addEventListener("click", generatePassword);
+      symbolEl.addEventListener("click", generatePassword);
 
       //   Instrução para copiar a senha do input através do butão
       document.querySelector("#copyPassword").addEventListener("click", () => {
