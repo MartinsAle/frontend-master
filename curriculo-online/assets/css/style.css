@@ -1,4 +1,6 @@
 @import "home.css";
+@import "responsive.css";
+@import "utils.css";
 * {
   margin: 0;
   padding: 0;
