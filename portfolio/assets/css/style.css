@@ -464,6 +464,39 @@ body {
   font-weight: 400;
   color: #fff;
 }
+.webview .container-whatsapp {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  padding: 10px;
+  min-width: 40px;
+  min-height: 40px;
+  z-index: 9999;
+}
+.webview .container-whatsapp .btn-whatsapp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #29ae81;
+}
+.webview .container-whatsapp .btn-whatsapp i {
+  font-size: 2rem;
+  color: #fff;
+}
+.webview .container-whatsapp .btn-whatsapp:hover {
+  background-color: #1e8865;
+  border: 2px solid #fff;
+}
 
 @media screen and (min-width: 768px) {
   .webview .intro .container h1 {
