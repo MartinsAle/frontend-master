@@ -239,7 +239,12 @@
         <div class="container">
           <div class="title"><h2>Contato</h2></div>
           <div class="formulario">
-            <form action="#">
+            <form
+              id="my-form"
+              action="https://formspree.io/f/xyyrwvwb"
+              method="POST"
+            >
+              <p id="my-form-status"></p>
               <div class="form-group">
                 <div class="controls">
                   <label for="nome">Nome:</label>
@@ -272,7 +277,9 @@
                 </div>
               </div>
               <div class="form-group m-auto">
-                <button class="btn-form-send">Enviar</button>
+                <button id="my-form-button" class="btn-form-send">
+                  Enviar
+                </button>
               </div>
             </form>
           </div>
@@ -301,4 +308,6 @@
   <!-- Jquery Mask -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <script src="./assets/js/custom/mask-form.js"></script>
+  <!-- Form -->
+  <script src="./assets/js/form/send.js"></script>
 </html>
